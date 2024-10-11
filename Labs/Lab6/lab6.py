@@ -97,10 +97,7 @@ print(top_stability)
 # print(most_stable)
 # print(most_stable_name)
 # top_stability = most_stable_name, ' has the most stable weather with a variance of ', most_stable
-# print(top_stability)
-#
-# print(temp_apr)
-# print(county_list)
+
 
 data.close()
 
