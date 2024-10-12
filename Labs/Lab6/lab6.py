@@ -1,6 +1,7 @@
 import json
 import math
 import statistics
+import markdown
 
 # Open and read the JSON file
 with open('datasets/counties.json', 'r') as file:
@@ -10,60 +11,36 @@ with open('datasets/counties.json', 'r') as file:
 # for i in data['name']:
 # print(i)
 
+def make_weather_list():
+    """Goes through counties.json and makes a list of lists.
+    Each list inside contains the county name, state, weather variance
+    and individual month data."""
 
+    all_counties_weather = []
+    county_weather_list = []
 
-def weather_most_stable():
-    """Goes through the counties.json data file. Finds set of jan,apr,jul,oct
-    temperature data from each data and finds the set of least variance.
-    If counties do not have all four month temperature readings, they are
-    skipped over and not considered."""
-
-    most_stable = None
-    month_temps = []
-    most_stable_name = ''
-    weather_dict = {}
-
-    for i in data:
-
+    for d in data:
         try:
-            temp_jan = i['noaa']['temp-jan']
-            month_temps.append(temp_jan)
-        except KeyError:
-            pass
-
-        try:
-            temp_apr = i['noaa']['temp-apr']
-            month_temps.append(temp_apr)
-        except KeyError:
-            pass
-
-        try:
-            temp_jul = i['noaa']['temp-jul']
-            month_temps.append(temp_jul)
-        except KeyError:
-            pass
-
-        try:
-            temp_oct = i['noaa']['temp-oct']
-            month_temps.append(temp_oct)
-        except KeyError:
-            pass
-
-        if len(month_temps) < 4:
-            month_temps.clear()
+            temp_name = d['name']
+            temp_state = d['state']
+            temp_jan = d['noaa']['temp-jan']
+            temp_apr = d['noaa']['temp-apr']
+            temp_jul = d['noaa']['temp-jul']
+            temp_oct = d['noaa']['temp-oct']
+        except:
             continue
 
-        temp_var = statistics.variance(month_temps)
+        temp_months = [temp_jan, temp_apr, temp_jul, temp_oct]
+        temp_var = statistics.pvariance(temp_months)
 
-        if most_stable is None or temp_var < most_stable:
-            most_stable = temp_var
-            most_stable_name = i['name'] + ', ' + i['state']
+        county_weather_list = [temp_name, temp_state, temp_var, temp_jan, temp_apr, temp_jul, temp_oct]
+        all_counties_weather.append(county_weather_list)
 
-        month_temps.clear()
+    all_counties_weather = sorted(all_counties_weather, key=lambda x: x[2])
 
+    print(all_counties_weather)
 
-    top_stability = most_stable_name, ' has the most stable weather with a variance of ', most_stable
-    print(top_stability)
+make_weather_list()
 
 data.close()
 
