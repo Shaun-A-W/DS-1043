@@ -1,20 +1,25 @@
 import json
 import math
 import statistics
-import markdown
 
 # Open and read the JSON file
 with open('datasets/counties.json', 'r') as file:
     data = json.load(file)
 
-# Read and print according to string
-# for i in data['name']:
-# print(i)
+# Markdown heading/start
+
+with open('report.md' , 'a') as h:
+    h.write("# DS-1043 Lab 6 Report  ")
+    h.write("\n")
+    h.write("## Shaun Worthen  ")
+    h.write("\n")
+
 
 def make_weather_list():
     """Goes through counties.json and makes a list of lists.
     Each list inside contains the county name, state, weather variance
-    and individual month data."""
+    and individual month data. Ignores counties without all
+    four months of data."""
 
     all_counties_weather = []
     county_weather_list = []
@@ -27,7 +32,7 @@ def make_weather_list():
             temp_apr = d['noaa']['temp-apr']
             temp_jul = d['noaa']['temp-jul']
             temp_oct = d['noaa']['temp-oct']
-        except:
+        except KeyError:
             continue
 
         temp_months = [temp_jan, temp_apr, temp_jul, temp_oct]
@@ -37,12 +42,39 @@ def make_weather_list():
         all_counties_weather.append(county_weather_list)
 
     all_counties_weather = sorted(all_counties_weather, key=lambda x: x[2])
+    return all_counties_weather
 
-    print(all_counties_weather)
 
-make_weather_list()
+def make_weather_table():
 
-data.close()
+    weather_info = make_weather_list()
+    row_string = ''
+    with open('report.md' , 'a') as w:
+
+        w.write("\n")
+        w.write("#### Most Stable Weather  ")
+        w.write("\n")
+        w.write("| County Name | State | Weather Variance | Temp Jan | Temp Apr | Temp July | Temp Oct |   ")
+        w.write("\n")
+        w.write("| --- | --- | --- | -------- | --- | --- | --- |  ")
+        w.write("\n")
+
+        for item in weather_info:
+            for i in item:
+                row_string = row_string + ' | ' + str(i)
+            row_string += '  '
+            w.write(row_string)
+            w.write('\n')
+            row_string = ''
+
+        w.write("\n")
+
+            # row_string.append(' || ' .join(map(str, item[info])) + ' |\n')
+
+
+make_weather_table()
+
+# data.close()
 
 # Print the data
 # print(data)
