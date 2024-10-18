@@ -2,6 +2,7 @@ import json
 import math
 import statistics
 
+
 # Open and read the JSON file
 with open('datasets/counties.json', 'r') as file:
     data = json.load(file)

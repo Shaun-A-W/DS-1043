@@ -5,6 +5,7 @@ and probability.
 
 Completed by Shaun W. by 2024-10-18 (YYYY-MM-DD) for DS-1043"""
 
+
 #imports etc
 import random
 Number = int | float
