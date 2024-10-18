@@ -11,21 +11,21 @@ Number = int | float
 Sequence = list | tuple
 
 
-def lab_min(numbers: Sequence) -> Number | None:
+def lab_min(numbers: Sequence) -> Number :
     if len(numbers) < 1:
         raise ValueError("Given sequence is empty")
     sort_min = sorted(numbers)
     return sort_min[0]
 
 
-def lab_max(numbers: Sequence) -> Number | None:
+def lab_max(numbers: Sequence) -> Number :
     if len(numbers) < 1:
         raise ValueError("Given sequence is empty")
     sort_max = sorted(numbers, reverse=True)
     return sort_max[0]
 
 
-def lab_sum(numbers: Sequence) -> Number | None:
+def lab_sum(numbers: Sequence) -> Number :
     sum_of_numbers = 0
     i = 0
     if len(numbers) < 1:
@@ -36,7 +36,7 @@ def lab_sum(numbers: Sequence) -> Number | None:
     return sum_of_numbers
 
 
-def lab_avg(numbers: Sequence) -> Number | None:
+def lab_avg(numbers: Sequence) -> Number :
     if len(numbers) < 1:
         raise ValueError("Given sequence is empty")
     avg_sum = lab_sum(numbers)
@@ -44,7 +44,7 @@ def lab_avg(numbers: Sequence) -> Number | None:
     return avg_of_numbers
 
 
-def lab_median(numbers: Sequence) -> Number | None:
+def lab_median(numbers: Sequence) -> Number :
     if len(numbers) < 1:
         raise ValueError("Given sequence is empty")
     numbers = sorted(numbers)
@@ -56,7 +56,7 @@ def lab_median(numbers: Sequence) -> Number | None:
         return (numbers[int(even_length)] + numbers[int(even_length + 1)]) / 2
 
 
-def lab_mode(numbers: Sequence) -> list | None:
+def lab_mode(numbers: Sequence) -> list | None :
 #beginning, check if viable input & define vars
     if len(numbers) < 1:
         raise ValueError("Given sequence is empty")
@@ -87,7 +87,7 @@ def lab_mode(numbers: Sequence) -> list | None:
     return modes
 
 
-def roll_dice(dice: int, faces: int) -> tuple[tuple[int,int],...] | None:
+def roll_dice(dice: int, faces: int) -> tuple[tuple[int,int],...] :
     if dice < 1 or faces < 1:
         raise ValueError("Must be at least one dice and at least one face each")
     list_dice = []

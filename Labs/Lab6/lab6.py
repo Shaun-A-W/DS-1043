@@ -61,8 +61,13 @@ def most_stable_table():
     row_string = ''
     with open('report.md' , 'a') as w:
 
+
         w.write("\n")
-        w.write("#### Most Stable Weather  ")
+        w.write("### Most Stable Weather  ")
+        w.write("\n")
+        w.write(truncated_most[0][0] + ", " + truncated_most[0][1]
+                + " has the most stable weather, with a temperature variance of " + str(truncated_most[0][2]) + "  ")
+        w.write("\n")
         w.write("\n")
         w.write("| County Name | State | Weather Variance | Temp Jan | Temp Apr | Temp July | Temp Oct |   ")
         w.write("\n")
@@ -89,7 +94,11 @@ def least_stable_table():
     with open('report.md', 'a') as w:
 
         w.write("\n")
-        w.write("#### Least Stable Weather  ")
+        w.write("### Least Stable Weather  ")
+        w.write("\n")
+        w.write(truncated_least[0][0] + ", " + truncated_least[0][1]
+                + " has the least stable weather, with a temperature variance of " + str(truncated_least[0][2]) + "  ")
+        w.write("\n")
         w.write("\n")
         w.write("| County Name | State | Weather Variance | Temp Jan | Temp Apr | Temp July | Temp Oct |   ")
         w.write("\n")
@@ -141,7 +150,11 @@ def most_growth_table():
     with open('report.md', 'a') as w:
 
         w.write("\n")
-        w.write("#### Highest Growth Counties ")
+        w.write("### Highest Growth Counties ")
+        w.write("\n")
+        w.write(truncated_most[0][0] + ", " + truncated_most[0][1]
+                + " has the highest growth, with a rate of " + str(truncated_most[0][2]) + "  ")
+        w.write("\n")
         w.write("\n")
         w.write("| County Name | State | Growth Rate | 2010 Pop | 2019 Pop |  ")
         w.write("\n")
@@ -167,7 +180,11 @@ def least_growth_table():
     with open('report.md', 'a') as w:
 
         w.write("\n")
-        w.write("#### Lowest Growth Counties ")
+        w.write("### Lowest Growth Counties ")
+        w.write("\n")
+        w.write(truncated_least[0][0] + ", " + truncated_least[0][1]
+                + " has the lowest growth, with a rate of " + str(truncated_least[0][2]) + "  ")
+        w.write("\n")
         w.write("\n")
         w.write("| County Name | State | Growth Rate | 2010 Pop | 2019 Pop |  ")
         w.write("\n")
@@ -234,7 +251,11 @@ def most_death_table():
     with open('report.md', 'a') as w:
 
         w.write("\n")
-        w.write("#### Deadliest Counties ")
+        w.write("### Deadliest Counties ")
+        w.write("\n")
+        w.write(truncated_most[0][0] + ", " + truncated_most[0][1]
+                + " is the deadliest county, with a per capita of " + str(truncated_most[0][2]) + "  ")
+        w.write("\n")
         w.write("\n")
         w.write("| County Name | State | Total Deaths/Cap | Suicides/Cap | Gun Suicide/Cap | Homicide/Cap | Vehicle/Cap |  ")
         w.write("\n")
@@ -260,7 +281,11 @@ def least_death_table():
     with open('report.md', 'a') as w:
 
         w.write("\n")
-        w.write("#### Safest Counties ")
+        w.write("### Safest Counties ")
+        w.write("\n")
+        w.write(truncated_least[0][0] + ", " + truncated_least[0][1]
+                + " is the safest county, with a per capita of " + str(truncated_least[0][2]) + "  ")
+        w.write("\n")
         w.write("\n")
         w.write("| County Name | State | Total Deaths/Cap | Suicides/Cap | Gun Suicide/Cap | Homicide/Cap | Vehicle/Cap |  ")
         w.write("\n")
@@ -313,7 +338,11 @@ def most_educated_table():
     with open('report.md', 'a') as w:
 
         w.write("\n")
-        w.write("#### Most Educated Counties ")
+        w.write("### Most Educated Counties ")
+        w.write("\n")
+        w.write(truncated_most[0][0] + ", " + truncated_most[0][1]
+                + " is the most educated county, with a college graduate rate of " + str(truncated_most[0][2]) + "  ")
+        w.write("\n")
         w.write("\n")
         w.write("| County Name | State | College Graduate Rate | Less than HS | HS Diploma | Some College Time |  ")
         w.write("\n")
@@ -339,7 +368,11 @@ def least_educated_table():
     with open('report.md', 'a') as w:
 
         w.write("\n")
-        w.write("#### Least Educated Counties ")
+        w.write("### Least Educated Counties ")
+        w.write("\n")
+        w.write(truncated_least[0][0] + ", " + truncated_least[0][1]
+                + " is the least educated, with a college graduate rate of " + str(truncated_least[0][2]) + "  ")
+        w.write("\n")
         w.write("\n")
         w.write("| County Name | State | College Graduate Rate | Less than HS | HS Diploma | Some College Time |  ")
         w.write("\n")
@@ -392,7 +425,11 @@ def most_male_table():
     with open('report.md', 'a') as w:
 
         w.write("\n")
-        w.write("#### Most Male Skewed Counties ")
+        w.write("### Most Male Skewed Counties ")
+        w.write("\n")
+        w.write(truncated_most[0][0] + ", " + truncated_most[0][1]
+                + " has the highest male population skew, with a proportion of " + str(truncated_most[0][2]) + "  ")
+        w.write("\n")
         w.write("\n")
         w.write("| County Name | State | Male % | Female % | Male Total | Female Total | Overall Total |  ")
         w.write("\n")
@@ -418,7 +455,11 @@ def most_female_table():
     with open('report.md', 'a') as w:
 
         w.write("\n")
-        w.write("#### Most Female Skewed Counties ")
+        w.write("### Most Female Skewed Counties ")
+        w.write("\n")
+        w.write(truncated_most[0][0] + ", " + truncated_most[0][1]
+                + " has the highest female population skew, with a proportion of " + str(truncated_most[0][3]) + "  ")
+        w.write("\n")
         w.write("\n")
         w.write("| County Name | State | Male % | Female % | Male Total | Female Total | Overall Total |  ")
         w.write("\n")
@@ -469,7 +510,11 @@ def make_old_table():
     with open('report.md', 'a') as w:
 
         w.write("\n")
-        w.write("#### Old Population Counties ")
+        w.write("### Old Population Counties ")
+        w.write("\n")
+        w.write(truncated_most[0][0] + ", " + truncated_most[0][1]
+                + " has the oldest population, with a proportion of " + str(truncated_most[0][3]) + "  ")
+        w.write("\n")
         w.write("\n")
         w.write("| County Name | State | Under 20yo % | Over 65yo % |  ")
         w.write("\n")
@@ -495,7 +540,11 @@ def make_young_table():
     with open('report.md', 'a') as w:
 
         w.write("\n")
-        w.write("#### Young Population Counties ")
+        w.write("### Young Population Counties ")
+        w.write("\n")
+        w.write(truncated_most[0][0] + ", " + truncated_most[0][1]
+                + " has the youngest population, with a proportion of " + str(truncated_most[0][2]) + "  ")
+        w.write("\n")
         w.write("\n")
         w.write("| County Name | State | Under 20yo % | Over 65yo % |  ")
         w.write("\n")
@@ -538,7 +587,11 @@ def age_variance_table():
     with open('report.md', 'a') as w:
 
         w.write("\n")
-        w.write("#### Highest Age Diversity Counties ")
+        w.write("### Highest Age Diversity Counties ")
+        w.write("\n")
+        w.write(truncated_most[0][0] + ", " + truncated_most[0][1]
+                + " has highest population variety, with a variance of " + str(truncated_most[0][2]) + "  ")
+        w.write("\n")
         w.write("\n")
         w.write("| County Name | State | Age Group Variance |  ")
         w.write("\n")
@@ -591,7 +644,11 @@ def most_employ_table():
     with open('report.md', 'a') as w:
 
         w.write("\n")
-        w.write("#### Highest Employment Counties ")
+        w.write("### Highest Employment Counties ")
+        w.write("\n")
+        w.write(truncated_most[0][0] + ", " + truncated_most[0][1]
+                + " has highest employment, with a rate of " + str(truncated_most[0][2]) + "  ")
+        w.write("\n")
         w.write("\n")
         w.write("| County Name | State | Employment Rate | Unemployment Rate | Labor Force |  ")
         w.write("\n")
@@ -616,7 +673,11 @@ def least_employ_table():
     with open('report.md', 'a') as w:
 
         w.write("\n")
-        w.write("#### Lowest Employment Counties ")
+        w.write("### Lowest Employment Counties ")
+        w.write("\n")
+        w.write(truncated_most[0][0] + ", " + truncated_most[0][1]
+                + " has highest unemployment, with a rate of " + str(truncated_most[0][3]) + "  ")
+        w.write("\n")
         w.write("\n")
         w.write("| County Name | State | Employment Rate | Unemployment Rate | Labor Force |  ")
         w.write("\n")
