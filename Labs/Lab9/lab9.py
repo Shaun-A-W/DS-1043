@@ -4,6 +4,7 @@ Implements "comp" function that will provide completions for objects in the curr
 Comp function utilizes several rudimentary functions, such as ngrams(), to
 build the resulting conclusion.
 
+Completed by Shaun W. by 9 Nov. 2024
 """
 import inspect
 from collections import defaultdict

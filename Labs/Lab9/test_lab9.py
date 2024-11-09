@@ -33,6 +33,7 @@ def test_fuzzy():
     assert ds.fuzzy_pick('co',test_index) == {'cop':'co', 'car':'c', 'stop':'o', 'knock':'c'}
 
 
+# Test switch
 if SWITCH:
     test_ngrams()
     test_build_index()
