@@ -1,3 +1,12 @@
+"""
+Lab B for DS-1043. Searching and Sorting.
+Contains bubble sort, merge sort, and bisect search.
+Contains classes that allow construction and traversal
+of binary trees.
+
+Completed by Shaun W.
+"""
+
 def bubble_sort(data: list, reverse=False) -> list:
     while True:
         swaps = 0
@@ -177,13 +186,13 @@ class Tree:
         return self._root.__repr__()
 
 
-import random
-random.seed()
-
-nodes = [random.randint(0,10) for x in range(10)]
-tree = Tree(nodes)
-print(tree)
-nodes.sort()
-for truth, test in zip(nodes, tree):
-    print(truth, test)
-    assert truth == test
+# import random
+# random.seed()
+#
+# nodes = [random.randint(0,10) for x in range(10)]
+# tree = Tree(nodes)
+# print(tree)
+# nodes.sort()
+# for truth, test in zip(nodes, tree):
+#     print(truth, test)
+#     assert truth == test
