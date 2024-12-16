@@ -119,16 +119,71 @@ class Node:
         elif value :
             self._quantity = self._quantity + 1
 
+    def traverse(self):
+        if self._left is not None:
+            yield from self._left.traverse()
+        for _ in range(self._quantity):
+            yield self._value
+        if self._right is not None:
+            yield from self._right.traverse()
+
+    def tra_reverse(self):
+        if self._right is not None:
+            yield from self._right.tra_reverse()
+        for _ in range(self._quantity):
+            yield self._value
+        if self._left is not None:
+            yield from self._left.tra_reverse()
+
+    def search(self, value):
+        if value == self:
+            return self
+        if value > self and self._right is not None:
+            return self._right.search(value)
+        if value < self and self._left is not None:
+            return self._left.search(value)
+        else: return None
+
+
+
+class Tree:
+
+    def __init__(self, iterable=()):
+        self._size = 0
+        if len(iterable) == 0:
+            self._root = None
+        else:
+            self._root = Node(iterable[0])
+            for i in iterable[1:]:
+                self._root.insert(i)
+                self._size += 1
+
+    def insert(self, value):
+        if self._size == 0:
+            self._root = Node(value)
+        else:
+            self._root.insert(value)
+
+    def __iter__(self):
+        return self._root.traverse()
+
+    def __reversed__(self):
+        return self._root.tra_reverse()
+
+    def __contains__(self, value):
+        return self._root.search(value)
+
+    def __repr__(self):
+        return self._root.__repr__()
+
 
 import random
 random.seed()
 
-root = None
-
-for item in {random.randint(0,100) for _ in range(20)}:
-    if root is None:
-        root = Node(item)
-    else:
-        root.insert(item)
-
-print(root)
+nodes = [random.randint(0,10) for x in range(10)]
+tree = Tree(nodes)
+print(tree)
+nodes.sort()
+for truth, test in zip(nodes, tree):
+    print(truth, test)
+    assert truth == test
