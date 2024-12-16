@@ -27,7 +27,7 @@ def get(url: str) -> requests.Response:
     return requests.get(url, headers=HEADERS)
 
 
-# [TODO] Save links left to visit and the data extracted to a JSON file
+# Save links left to visit and the data extracted to a JSON file
 def save_state(filename: str, links: list[str], data: dict[str, dict]) -> None:
     with open(filename, 'w') as state:
         try:
@@ -37,14 +37,14 @@ def save_state(filename: str, links: list[str], data: dict[str, dict]) -> None:
             pass
     
 
-# [TODO] Load links left to visit and collected data from a JSON file
+# Load links left to visit and collected data from a JSON file
 def load_state(filename: str) -> list[list[str], dict[str, dict]]:
     with open(filename, 'r') as state:
         loaded = json.load(state)
         return loaded
 
 
-# [TODO] Write all data to a CSV file
+# Write all data to a CSV file
 def write_spreadsheet(filename: str, data: dict[str, dict]) -> None:
     with open(filename, 'w', encoding='utf-8', newline='') as sheet:
         fields = ['Title', 'Category', 'UPC', 'Product Type', 'Price (excl. tax)', 'Price (incl. tax)', 'Tax', 'Availability', 'Number of reviews']
@@ -59,7 +59,7 @@ def write_spreadsheet(filename: str, data: dict[str, dict]) -> None:
 
 
 if __name__ == '__main__':
-    # [TODO] Load the state file or start fresh if it cannot be read
+    # Load the state file or start fresh if it cannot be read
 
     try:
         to_visit, data = load_state(STATE_FILENAME)
@@ -120,7 +120,7 @@ if __name__ == '__main__':
             data[current] = temp_dat
 
 
-            # [TODO] Process files from to_visit
+            # Process files from to_visit
             #        This requires:
             #        - Popping a link from the list
             #        - Checking to see if it has already been processed
