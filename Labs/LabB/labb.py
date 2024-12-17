@@ -125,7 +125,7 @@ class Node:
                 self._right = Node(value, self)
             else:
                 self._right.insert(value)
-        elif value :
+        elif value == self._value:
             self._quantity = self._quantity + 1
 
     def traverse(self):
